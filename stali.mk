@@ -7,7 +7,7 @@ all:
 	@$(MAKE) KERNEL=$(KERNEL) ARCH=arm zImage dtbs || exit
 	@echo done
 
-install:
+install: all
 	@mkdir -p $(DESTDIR)/boot/overlays
 	@cp arch/arm/boot/dts/*.dtb $(DESTDIR)/boot/
 	@cp arch/arm/boot/dts/overlays/*.dtb* $(DESTDIR)/boot/overlays/
